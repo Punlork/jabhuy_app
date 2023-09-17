@@ -1,21 +1,13 @@
 import React from 'react'
 import { useAtom } from 'jotai'
 import { storageAtom } from '../../atom/Storage'
-import { useNavigation } from '@react-navigation/native'
-import {
-    AddIcon,
-    Box,
-    Button,
-    ButtonIcon,
-    ButtonText,
-    Text,
-} from '@gluestack-ui/themed'
+import { Box, Button, Text } from '@gluestack-ui/themed'
 import { useLanguage } from '../../locale/useLanguage'
+import Card from './Card'
 
 export function HomeScreen() {
     const [storage, setStorage] = useAtom(storageAtom)
     const language = useLanguage()
-    const navigation = useNavigation()
 
     return (
         <Box flex={1} justifyContent="center" alignItems="center">
@@ -29,8 +21,9 @@ export function HomeScreen() {
                     })
                 }}
                 action="secondary">
-                <ButtonText>Change Langauge</ButtonText>
+                <Text>Change</Text>
             </Button>
+            <Card></Card>
         </Box>
     )
 }
