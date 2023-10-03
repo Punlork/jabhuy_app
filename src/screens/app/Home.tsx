@@ -1,29 +1,23 @@
 import React from 'react'
-import { useAtom } from 'jotai'
-import { storageAtom } from '../../atom/Storage'
-import { Box, Button, Text } from '@gluestack-ui/themed'
-import { useLanguage } from '../../locale/useLanguage'
+import { AddIcon, Box, Fab, FabIcon, FlatList } from '@gluestack-ui/themed'
 import Card from './Card'
+import styles from '../../styles/styleGuide'
 
 export function HomeScreen() {
-    const [storage, setStorage] = useAtom(storageAtom)
-    const language = useLanguage()
-
     return (
-        <Box flex={1} justifyContent="center" alignItems="center">
-            <Text>{`Current Language: ${language.home}`}</Text>
-            <Box height={10} />
-            <Button
-                onPress={() => {
-                    setStorage({
-                        ...storage,
-                        language: storage.language == 'en' ? 'kh' : 'en',
-                    })
+        <Box flex={1} justifyContent="center" alignItems="center" py={20}>
+            {/* <Fab size="lg">
+                <FabIcon as={AddIcon} />
+            </Fab> */}
+            <FlatList
+                numColumns={2}
+                data={new Array(10)}
+                ItemSeparatorComponent={() => <Box height={20} />}
+                columnWrapperStyle={[styles.justifyBetween]}
+                renderItem={() => {
+                    return <Card title="Coca Cola - Can" />
                 }}
-                action="secondary">
-                <Text>Change</Text>
-            </Button>
-            <Card></Card>
+            />
         </Box>
     )
 }
