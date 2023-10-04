@@ -20,11 +20,12 @@ const Card = memo(({ title, onPressed }: CardProps) => {
     return (
         <Pressable
             borderRadius="$2xl"
-            height="$80"
-            width="45%"
-            bgColor="$amber100"
+            height="$72"
+            width="48%"
+            bgColor="$primary0"
             onPress={onPressed}
-            elevation={4}>
+            elevation={2}
+            shadowRadius="$2">
             <Box
                 borderRadius="$2xl"
                 backgroundColor="$white"
@@ -38,6 +39,19 @@ const Card = memo(({ title, onPressed }: CardProps) => {
                         uri: 'https://www.cbcl.com.kh/wp-content/uploads/2022/08/Coke_VIS1_330ml-e1660726978654.png',
                     }}
                 />
+                <Badge
+                    bgColor="$primary0"
+                    size="md"
+                    borderTopRightRadius="$xs"
+                    borderBottomRightRadius="$xs"
+                    py="$0.5"
+                    top={20}
+                    position="absolute"
+                    alignSelf="flex-start">
+                    <BadgeText color="$white" fontWeight="$normal" size="sm">
+                        Drinks
+                    </BadgeText>
+                </Badge>
             </Box>
             <VStack
                 px="$3"
@@ -47,37 +61,21 @@ const Card = memo(({ title, onPressed }: CardProps) => {
                 borderTopLeftRadius="$xl"
                 borderBottomLeftRadius="$2xl"
                 borderBottomRightRadius="$2xl"
-                bgColor="$primary300"
+                bgColor="$white"
                 position="absolute"
                 bottom={0}
-                elevation={10}
+                elevation={4}
                 width="$full">
-                <Text pb={'$2'} size="lg" color="white" fontWeight="$semibold">
+                <Text pb={'$2'} size="lg" color="$black" fontWeight="$semibold">
                     {title}
                 </Text>
-                <Badge
-                    bgColor="$white"
-                    size="md"
-                    borderRadius="$lg"
-                    py="$0.5"
-                    px="$2"
-                    alignSelf="flex-start">
-                    <BadgeText color="$black" fontWeight="$normal" size="sm">
-                        Drinks
-                    </BadgeText>
-                </Badge>
-                <Box height={10} />
-                <Text size="md" color="$white">
-                    <Text fontWeight="$semibold" color="$white">
-                        {'KHR: '}
-                    </Text>
-                    2000 riel
+
+                <Box height={2} />
+                <Text size="md" color="$black">
+                    KHR : 2000 riel
                 </Text>
-                <Text size="md" color="white">
-                    <Text fontWeight="$semibold" color="$white">
-                        {'USD: '}
-                    </Text>
-                    0.5 $
+                <Text size="md" color="$black">
+                    USD : 0.5 $
                 </Text>
             </VStack>
         </Pressable>
